@@ -27,9 +27,9 @@ namespace SampleAspNetCoreWebApiApp.Controllers
             sb.AppendLine($"Host: {Request.Host.Host}");
             sb.AppendLine($"Port: {Request.Host.Port}");
             var connectionInfo = Request.HttpContext.Connection;
-            sb.AppendLine($"RemoteIpAddress: {connectionInfo.RemoteIpAddress}");
+            sb.AppendLine($"RemoteIpAddress: {connectionInfo.RemoteIpAddress.MapToIPv4()}");
             sb.AppendLine($"RemotePort: {connectionInfo.RemotePort}");
-            sb.AppendLine($"LocalIpAddress: {connectionInfo.LocalIpAddress}");
+            sb.AppendLine($"LocalIpAddress: {connectionInfo.LocalIpAddress.MapToIPv4()}");
             sb.AppendLine($"LocalPort: {connectionInfo.LocalPort}");
             foreach(var header in Request.Headers)
             {
