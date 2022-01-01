@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ namespace SampleAspNetCoreWebApiApp.Controllers
         public IActionResult Get()
         {
             var sb = new StringBuilder();
-            
+            sb.AppendLine("Host name: " + Dns.GetHostName());
             sb.AppendLine($"Host: {Request.Host.Host}");
             sb.AppendLine($"Port: {Request.Host.Port}");
             var connectionInfo = Request.HttpContext.Connection;
